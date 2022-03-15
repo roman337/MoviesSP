@@ -2,7 +2,7 @@ import React from 'react';
 
 const Movies = () => {
     return (
-        <div>
+        <div style={{fontSize: '50px'}}>
             <h1> Фильмы </h1>
         </div>
     );

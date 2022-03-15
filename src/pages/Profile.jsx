@@ -1,9 +1,12 @@
 import React from 'react';
+import {findAllByDisplayValue} from "@testing-library/react";
 
 const Profile = () => {
     return (
-        <div>
-            Профиль
+        <div style={{fontSize: '30px'}}>
+            <h1>Ваш профиль</h1>
+            <p>Имя: </p>
+
         </div>
     );
 };

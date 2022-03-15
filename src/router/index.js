@@ -7,6 +7,7 @@ import Profile from "../pages/Profile";
 export const publicRoutes = [
     {path: '/', element: Main, exact: false },
     {path: '/login', element: Login, exact: false },
+    {path: '/profile', element: Login, exact: false },
     {path: '/*', element: Error, exact: false },
 ]
 

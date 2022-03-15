@@ -5,12 +5,12 @@ import MyButton from "../button/MyButton";
 import {AuthContext} from "../../context";
 
 const Navbar = () => {
-    // const[isAuth, setIsAuth] = useContext(AuthContext);
+    const {isAuth, setIsAuth} = useContext(AuthContext);
 
-    // const logout = (event) => {
-    //     setIsAuth(false);
-    //     localStorage.removeItem('auth');
-    // }
+    const logout = (event) => {
+         setIsAuth(false);
+         localStorage.removeItem('auth');
+     }
 
     return (
         <div className={classes.navbar}>
@@ -18,10 +18,8 @@ const Navbar = () => {
                 <Link className={classes.navbar__item} to='/'>На главную</Link>
                 <Link className={classes.navbar__item} to="/movies">Фильмы</Link>
                 <Link className={classes.navbar__item} to='/profile'>Профиль</Link>
-
-                {/*<MyButton></MyButton>*/}
-
             </div>
+            <MyButton onClick={logout}>Выйти</MyButton>
         </div>
     );
 };

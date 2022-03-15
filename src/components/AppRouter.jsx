@@ -15,7 +15,7 @@ const AppRouter = () => {
                 privateRoutes.map(route =>
                 <Route
                     path={route.path}
-                    element={route.element}
+                    element={<route.element/>}
                     exact={route.exact}
                     key={route.path}
                 />)
