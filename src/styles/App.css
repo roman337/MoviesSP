@@ -18,7 +18,8 @@ body {
 .main__title {
     display: table;
     margin: auto;
-    margin-top: 13%;
+    /*margin-top: 13%;*/
+    margin-top: 15%;
     font-size: 40px;
     color: whitesmoke;
     width: 50%;

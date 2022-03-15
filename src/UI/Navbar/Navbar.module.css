@@ -1,11 +1,26 @@
 .navbar {
-    padding: 50px;
+    width: 100vw;
+    /*height: 100px;*/
+    padding: 0 15px;
+    display: flex;
+    margin-top: 20px;
+    float: left;
 }
 
 .navbar__links {
-
+    /*margin-right: -100px;*/
+    /*padding-right: 0px;*/
 }
 
-.navbar__items {
+.navbar__item {
+    padding: 7px 30px;
+    /*width: 100px;*/
+    border: 1px white solid;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+}
 
+.navbar__item:hover {
+    background: rgb(212,75,56);
 }
