@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import ReactDOM from "react-dom";
 import {Routes, Route, BrowserRouter, Link} from "react-router-dom";
 import Login from "./pages/Login";
@@ -7,32 +7,28 @@ import './styles/App.css'
 import AppRouter from "./components/AppRouter";
 import MyButton from "./UI/button/MyButton";
 import classes from './UI/button/MyButton.module.css'
+import {AuthContext} from "./context";
 
 const App = () => {
-   const [isLogin, setLogin] = useState(false);
+   const [isAuth, setIsAuth] = useState(false);
 
-    const log = () => {
-        setLogin(true);
-    }
+    useEffect(() => {
+        if(localStorage.getItem('auth')) {
+            setIsAuth(true);
+        }
+    }, []);
 
   return (
-        <BrowserRouter>
-            <Navbar/>
+      <AuthContext.Provider value = {{
+          isAuth,
+          setIsAuth
+      }}>
+          <BrowserRouter>
+              <Navbar/>
+              <AppRouter/>
+          </BrowserRouter>
+      </AuthContext.Provider>
 
-            <form className='main__title'>
-                <p>
-                    Добро пожаловать на наш сайт. <br/>
-                    Войдите, чтобы увидеть больше!
-                </p>
-                {/*<MyButton>*/}
-                {/*    Войти*/}
-                {/*</MyButton>*/}
-                <Link className={classes.myBtn} to='/login' onClick={log}>Войти</Link>
-            </form>
-
-
-            <AppRouter/>
-        </BrowserRouter>
   );
 }
 

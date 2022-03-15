@@ -12,7 +12,6 @@
 
 body {
     background-image: url('../../public/bg.jpg');
-    items: center;
 }
 
 .main__title {
@@ -20,7 +19,7 @@ body {
     margin: auto;
     /*margin-top: 13%;*/
     margin-top: 15%;
-    font-size: 40px;
+    font-size: 35px;
     color: whitesmoke;
     width: 50%;
     text-align: center;
@@ -28,6 +27,3 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-.qwe {
-    /*align-items: center;*/
-}
