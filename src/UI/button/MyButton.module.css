@@ -1,0 +1,22 @@
+.myBtn {
+    /*padding: 5px 15px;*/
+    /*color: teal;*/
+    /*font-size: 15px;*/
+    /*cursor: pointer;*/
+    /*border: 1px solid teal;*/
+
+    color: #fff;
+    text-decoration: none;
+    user-select: none;
+    background: rgb(212,75,56);
+    padding: .7em 1.5em;
+    outline: none;
+    cursor: pointer;
+}
+
+.myBtn:hover {
+    background: rgb(232,95,76);
+}
+.myBtn:active {
+    background: rgb(152,15,0);
+}
