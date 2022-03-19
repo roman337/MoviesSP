@@ -8,6 +8,10 @@ import AppRouter from "./components/AppRouter";
 import MyButton from "./UI/button/MyButton";
 import classes from './UI/button/MyButton.module.css'
 import {AuthContext} from "./context";
+import axios from "axios";
+import async from "async";
+import Service from "./API/Service";
+import error from "./pages/Error";
 
 const App = () => {
    const [isAuth, setIsAuth] = useState(false);
@@ -17,6 +21,7 @@ const App = () => {
             setIsAuth(true);
         }
     }, []);
+
 
   return (
       <AuthContext.Provider value = {{
