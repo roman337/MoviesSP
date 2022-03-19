@@ -1,7 +1,7 @@
 import Main from "../pages/Main";
 import Login from "../pages/Login";
 import Error from "../pages/Error";
-import Movies from "../pages/Movies";
+import Movies from "../pages/Movies/Movies";
 import Profile from "../pages/Profile";
 
 export const publicRoutes = [

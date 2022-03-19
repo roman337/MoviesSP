@@ -1,0 +1,11 @@
+.movie {
+    border: 3px orange solid;
+    margin-left: 200px;
+    margin-right: 200px;
+    display: flex;
+    padding: 15px;
+    margin-top: 15px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+}
