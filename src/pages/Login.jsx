@@ -3,10 +3,13 @@ import {BrowserRouter} from "react-router-dom";
 import MyInput from "../UI/input/MyInput";
 import MyButton from "../UI/button/MyButton";
 import {AuthContext} from "../context";
-import {findAllByDisplayValue} from "@testing-library/react";
+import {useNavigate} from 'react-router'
+
 
 const Login = () => {
     const {isAuth, setIsAuth} = useContext(AuthContext);
+
+    const router = useNavigate();
 
     const requiredUsername = 'Admin';
     const requiredPassword = 12345;
@@ -19,6 +22,7 @@ const Login = () => {
         if (enteredUsername == requiredUsername && enteredPassword == requiredPassword) {
             setIsAuth(true);
             localStorage.setItem('auth', 'true');
+            router('/movies');
         } else {
             alert('Имя пользователя или пароль введены не верно');
         }
