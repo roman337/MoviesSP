@@ -3,13 +3,16 @@ import {Link} from "react-router-dom";
 import classes from "./Navbar.module.css";
 import MyButton from "../button/MyButton";
 import {AuthContext} from "../../context";
+import {useNavigate} from "react-router";
 
 const Navbar = () => {
     const {isAuth, setIsAuth} = useContext(AuthContext);
+    const router = useNavigate();
 
     const logout = (event) => {
          setIsAuth(false);
          localStorage.removeItem('auth');
+         router('/');
      }
 
     return (

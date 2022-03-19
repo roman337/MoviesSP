@@ -6,11 +6,15 @@ import classes from "./MoveIdPage.module.css";
 const MovieIdPage = () => {
     const params = useParams();
     const [movie, setMovie] = useState([]);
+    const [counties, setCountries] = useState([]);
 
     async function getMovie() {
         const response = await Service.getMovieById(params.id);
         console.log(response.data);
         setMovie(response.data);
+        setCountries(response.data.production_countries);
+        // counties.push(movie.production_countries);
+        console.log(counties);
     }
 
     useEffect(() => {
@@ -21,13 +25,16 @@ const MovieIdPage = () => {
         <div>
             <div className={classes.items}>
                 <div className={classes.item}>Название: {movie.title} </div>
-                {/*Жанр: {movie.genres[0].name}*/}
+                {/*<div>Жанр: {*/}
+                {/*    movie.genres.map(genre =>*/}
+                {/*        <div>{genre.name} </div>*/}
+                {/*    )}*/}
+                {/*</div>*/}
                 <div>Ограничение по возрасту: {movie.adult ? 'Да' : 'Нет'}</div>
                 <div>Бюджет: ${movie.budget}</div>
                 <div>Рейтинг: {movie.vote_average}</div>
                 <div>Дата выхода: {movie.release_date}</div>
                 <div>Длительность: {movie.runtime} минут</div>
-                {/*<div>Страны производства: {movie.production_countries.length}</div>*/}
             </div>
         </div>
     );
