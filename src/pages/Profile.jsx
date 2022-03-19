@@ -5,8 +5,7 @@ const Profile = () => {
     return (
         <div style={{fontSize: '30px'}}>
             <h1>Ваш профиль</h1>
-            <p>Имя: </p>
-
+            <p>Имя: Admin</p>
         </div>
     );
 };
