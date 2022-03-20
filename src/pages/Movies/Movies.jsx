@@ -12,7 +12,6 @@ const Movies = () => {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        preventDefault();
         fetchMovies();
     }, []);
 
