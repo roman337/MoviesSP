@@ -3,6 +3,7 @@ import Service from "../../API/Service";
 import axios from "axios";
 import classes from './Movies.module.css'
 import MoviesList from "../../components/MoviesList";
+import Loader from "../../UI/Loader/Loader";
 
 const Movies = () => {
 
@@ -18,9 +19,14 @@ const Movies = () => {
     }
 
     return (
-        <div style={{fontSize: '50px'}}>
-            {/*<button onClick={fetchMovies}>Загрузить фильмы</button>*/}
-            <MoviesList movies={movies} />
+        <div>
+            {(!movies.length) ?
+                <Loader/>
+                :
+                <div style={{fontSize: '50px'}}>
+                    <MoviesList movies={movies} />
+                </div>
+            }
         </div>
     );
 };
