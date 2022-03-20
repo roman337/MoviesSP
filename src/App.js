@@ -12,6 +12,8 @@ import axios from "axios";
 import async from "async";
 import Service from "./API/Service";
 import error from "./pages/Error";
+import {createStore} from "redux";
+import {Provider} from "react-redux";
 
 const App = () => {
    const [isAuth, setIsAuth] = useState(false);
@@ -22,17 +24,38 @@ const App = () => {
         }
     }, []);
 
+    const defaultState = {
+        query: 'qwqwqwq',
+    }
+
+    const CHANGE_QUERY = 'CHANGE_QUERY';
+    const GET_QUERY = 'GET_QUERY';
+
+    const queryReducer = (state = defaultState, action) => {
+        switch (action.type) {
+            case CHANGE_QUERY:
+                return {...state, query: action.payload}
+            case GET_QUERY:
+                return state.query;
+            default:
+                return state;
+        }
+    }
+
+    const store = createStore(queryReducer);
 
   return (
-      <AuthContext.Provider value = {{
-          isAuth,
-          setIsAuth
-      }}>
-          <BrowserRouter>
-              <Navbar/>
-              <AppRouter/>
-          </BrowserRouter>
-      </AuthContext.Provider>
+      <Provider store={store}>
+          <AuthContext.Provider value = {{
+              isAuth,
+              setIsAuth
+          }}>
+              <BrowserRouter>
+                  <Navbar/>
+                  <AppRouter/>
+              </BrowserRouter>
+          </AuthContext.Provider>
+      </Provider>
 
   );
 }
