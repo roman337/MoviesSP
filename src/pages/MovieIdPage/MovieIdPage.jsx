@@ -2,19 +2,17 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import Service from "../../API/Service";
 import classes from "./MoveIdPage.module.css";
+import MyButton from "../../UI/button/MyButton";
+import {useNavigate} from "react-router";
 
 const MovieIdPage = () => {
     const params = useParams();
+    const router = useNavigate();
     const [movie, setMovie] = useState([]);
-    const [counties, setCountries] = useState([]);
 
     async function getMovie() {
         const response = await Service.getMovieById(params.id);
-        console.log(response.data);
         setMovie(response.data);
-        setCountries(response.data.production_countries);
-        // counties.push(movie.production_countries);
-        console.log(counties);
     }
 
     useEffect(() => {
@@ -35,6 +33,9 @@ const MovieIdPage = () => {
                 <div>Рейтинг: {movie.vote_average}</div>
                 <div>Дата выхода: {movie.release_date}</div>
                 <div>Длительность: {movie.runtime} минут</div>
+            </div>
+            <div>
+                <MyButton style={{marginTop: '15px', marginLeft: '400px'}} onClick={() => router('/movies')}>Назад</MyButton>
             </div>
         </div>
     );

@@ -25,15 +25,15 @@ const App = () => {
     }, []);
 
     const defaultState = {
-        query: 'qwqwqwq',
+        query: '',
     }
 
-    const CHANGE_QUERY = 'CHANGE_QUERY';
+    const SET_QUERY = 'SET_QUERY';
     const GET_QUERY = 'GET_QUERY';
 
     const queryReducer = (state = defaultState, action) => {
         switch (action.type) {
-            case CHANGE_QUERY:
+            case SET_QUERY:
                 return {...state, query: action.payload}
             case GET_QUERY:
                 return state.query;

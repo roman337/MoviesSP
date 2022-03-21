@@ -6,32 +6,29 @@ import MoviesList from "../../components/MoviesList";
 import Loader from "../../UI/Loader/Loader";
 import MyInput from "../../UI/input/MyInput";
 import {useDispatch, useSelector} from "react-redux";
+import {useMovies} from "../../hooks/useMovies";
+
 
 const Movies = () => {
-
     const [movies, setMovies] = useState([]);
-
-    useEffect(() => {
-        fetchMovies();
-    }, []);
-
-    async function fetchMovies() {
-        const response = await Service.getData();
-        setMovies([...movies, ...response.data.results]);
-
-    }
 
     const dispatch = useDispatch();
     const query = useSelector(state => state.query);
 
-    const setQuery = (event) => {
-        dispatch({type: 'CHANGE_QUERY', payload: event.target.value})
+    const searchingMovies = useMovies(movies, query);
+
+    async function fetchMovies() {
+        const response = await Service.getData();
+        setMovies([...movies, ...response.data.results]);
     }
 
-    const searchingMovies = useMemo(() => {
-        return movies.filter(movie => movie.title.toLowerCase().includes(query.toLowerCase()));
-    }, [query])
+    const setQuery = (event) => {
+        dispatch({type: 'SET_QUERY', payload: event.target.value})
+    }
 
+    useEffect(() => {
+        fetchMovies()
+    }, []);
 
     return (
         <div>
@@ -39,7 +36,7 @@ const Movies = () => {
                 <Loader/>
                 :
                 <div style={{fontSize: '50px'}}>
-                    <MyInput onChange={event => setQuery(event)}></MyInput>
+                    <MyInput style={{marginLeft: '200px'}} onChange={event => setQuery(event)} placeholder='Поиск по названию...' alt=' '/>
                     <MoviesList movies={searchingMovies} />
                 </div>
             }

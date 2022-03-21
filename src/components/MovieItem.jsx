@@ -11,10 +11,11 @@ const MovieItem = (props) => {
                 {/*<img src="https://image.tmdb.org/t/p/w500/e1mjopzAS2KNsvpbpahQ1a6SkSn.jpg" alt="Идёт загрузка..."/>*/}
                 <strong>{props.movie.title }</strong>
                 <div>{props.movie.overview}</div>
-                <div>Description: {props.movie.release_date}</div>
-                <div>Rating: {props.movie.vote_average}</div>
+                <div>Описание: {props.movie.release_date}</div>
+                <div>Рейтинг: {props.movie.vote_average}</div>
+                <div>Популярность: {props.movie.popularity}</div>
             </div>
-            <MyButton onClick={() => router(`/movies/${props.movie.id}`)}>Показать больше</MyButton>
+            <MyButton style={{width: '200px'}} onClick={() => router(`/movies/${props.movie.id}`)}>Показать больше</MyButton>
         </div>
     );
 };

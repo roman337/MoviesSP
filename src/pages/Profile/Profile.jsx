@@ -1,9 +1,9 @@
 import React from 'react';
-import {findAllByDisplayValue} from "@testing-library/react";
+import classes from './Profile.module.css'
 
 const Profile = () => {
     return (
-        <div style={{fontSize: '30px'}}>
+        <div className={classes.profile}>
             <h1>Ваш профиль</h1>
             <p>Имя: Admin</p>
         </div>
