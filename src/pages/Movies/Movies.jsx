@@ -7,6 +7,7 @@ import Loader from "../../UI/Loader/Loader";
 import MyInput from "../../UI/input/MyInput";
 import {useDispatch, useSelector} from "react-redux";
 import {useMovies} from "../../hooks/useMovies";
+import {setQueryAction} from "../../store/queryReducer";
 
 
 const Movies = () => {
@@ -23,7 +24,8 @@ const Movies = () => {
     }
 
     const setQuery = (event) => {
-        dispatch({type: 'SET_QUERY', payload: event.target.value})
+        // dispatch({type: 'SET_QUERY', payload: event.target.value})
+        dispatch(setQueryAction(event.target.value));
     }
 
     useEffect(() => {

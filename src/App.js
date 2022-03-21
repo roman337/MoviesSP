@@ -14,6 +14,7 @@ import Service from "./API/Service";
 import error from "./pages/Error";
 import {createStore} from "redux";
 import {Provider} from "react-redux";
+import {store} from "./store";
 
 const App = () => {
    const [isAuth, setIsAuth] = useState(false);
@@ -24,25 +25,6 @@ const App = () => {
         }
     }, []);
 
-    const defaultState = {
-        query: '',
-    }
-
-    const SET_QUERY = 'SET_QUERY';
-    const GET_QUERY = 'GET_QUERY';
-
-    const queryReducer = (state = defaultState, action) => {
-        switch (action.type) {
-            case SET_QUERY:
-                return {...state, query: action.payload}
-            case GET_QUERY:
-                return state.query;
-            default:
-                return state;
-        }
-    }
-
-    const store = createStore(queryReducer);
 
   return (
       <Provider store={store}>
