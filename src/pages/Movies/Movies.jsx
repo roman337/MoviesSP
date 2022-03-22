@@ -13,20 +13,20 @@ import {setQueryAction} from "../../store/queryReducer";
 const Movies = () => {
     const [movies, setMovies] = useState([]);
 
-    const dispatch = useDispatch();
-    const query = useSelector(state => state.query);
-
-    const searchingMovies = useMovies(movies, query);
+    // const dispatch = useDispatch();
+    // const query = useSelector(state => state.query);
+    //
+    // const searchingMovies = useMovies(movies, query);
 
     async function fetchMovies() {
         const response = await Service.getData();
         setMovies([...movies, ...response.data.results]);
     }
 
-    const setQuery = (event) => {
-        // dispatch({type: 'SET_QUERY', payload: event.target.value})
-        dispatch(setQueryAction(event.target.value));
-    }
+    // const setQuery = (event) => {
+    //     // dispatch({type: 'SET_QUERY', payload: event.target.value})
+    //     dispatch(setQueryAction(event.target.value));
+    // }
 
     useEffect(() => {
         fetchMovies()
