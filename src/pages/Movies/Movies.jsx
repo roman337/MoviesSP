@@ -38,8 +38,8 @@ const Movies = () => {
                 <Loader/>
                 :
                 <div style={{fontSize: '50px'}}>
-                    <MyInput style={{marginLeft: '200px'}} onChange={event => setQuery(event)} placeholder='Поиск по названию...' alt=' '/>
-                    <MoviesList movies={searchingMovies} />
+                    {/*<MyInput style={{marginLeft: '200px'}} onChange={event => setQuery(event)} placeholder='Поиск по названию...' alt=' '/>*/}
+                    <MoviesList movies={movies} />
                 </div>
             }
         </div>
